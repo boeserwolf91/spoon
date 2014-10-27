@@ -4,15 +4,10 @@
 		<console name="console" target="SYSTEM_OUT">
 			<patternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %p %c - %m%n"/>
 		</console>
-		<file name="R" fileName="${java.io.tmpdir}/spoon-log.log">
-			<patternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %p %c - %m%n"/>
-		</file>
 	</appenders>
 	<loggers>
-		<logger name="spoon" level="debug">
-			<appenderRef ref="R"/>
-		</logger>
-		<root level="info">
+		<logger name="spoon" level="info"/>
+		<root>
 			<appenderRef ref="console"/>
 		</root>
 	</loggers>
