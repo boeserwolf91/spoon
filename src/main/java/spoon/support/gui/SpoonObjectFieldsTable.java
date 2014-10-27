@@ -75,18 +75,18 @@ public class SpoonObjectFieldsTable extends JFrame {
 					if (val != null)
 						return val.getClass().getCanonicalName();
 				} catch (IllegalArgumentException e) {
-					Launcher.logger.error(e.getMessage(), e);
+					Launcher.logger.catching(e);
 				} catch (IllegalAccessException e) {
-					Launcher.logger.error(e.getMessage(), e);
+					Launcher.logger.catching(e);
 				}
 				break;
 			case (3):
 				try {
 					return m.get(o);
 				} catch (IllegalArgumentException e) {
-					Launcher.logger.error(e.getMessage(), e);
+					Launcher.logger.catching(e);
 				} catch (IllegalAccessException e) {
-					Launcher.logger.error(e.getMessage(), e);
+					Launcher.logger.catching(e);
 				}
 			}
 			return null;

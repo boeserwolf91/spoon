@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="off"> <!-- http://logging.apache.org/log4j/2.x/manual/configuration.html --> <!-- http://www.grobmeier.de/log4j-2-performance-close-to-insane-20072013.html#.VEkstfmsX8c http://logging.apache.org/log4j/2.0/manual/async.html -->
+	<appenders>
+		<console name="console" target="SYSTEM_OUT">
+			<patternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %p %c - %m%n"/>
+		</console>
+		<file name="R" fileName="${java.io.tmpdir}/spoon-log.log">
+			<patternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %p %c - %m%n"/>
+		</file>
+	</appenders>
+	<loggers>
+		<logger name="spoon" level="debug">
+			<appenderRef ref="R"/>
+		</logger>
+		<root level="info">
+			<appenderRef ref="console"/>
+		</root>
+	</loggers>
+</configuration>

@@ -43,7 +43,7 @@ public class FileSystemFile implements SpoonFile {
 		try {
 			return new FileInputStream(file);
 		} catch (FileNotFoundException e) {
-			Launcher.logger.error(e.getMessage(), e);
+			Launcher.logger.catching(e);
 		}
 		return null;
 	}
@@ -56,7 +56,7 @@ public class FileSystemFile implements SpoonFile {
 		try {
 			return SpoonResourceHelper.createFolder(file.getParentFile());
 		} catch (FileNotFoundException e) {
-			Launcher.logger.error(e.getMessage(), e);
+			Launcher.logger.catching(e);
 		}
 		return null;
 	}
@@ -78,7 +78,7 @@ public class FileSystemFile implements SpoonFile {
 		try {
 			return file.getCanonicalPath();
 		} catch (Exception e) {
-			Launcher.logger.error(e.getMessage(), e);
+			Launcher.logger.catching(e);
 			return file.getPath();
 		}
 	}

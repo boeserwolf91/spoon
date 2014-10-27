@@ -68,7 +68,7 @@ public class SerializationModelStreamer implements ModelStreamer {
 			ois.close();
 			return f;
 		} catch (ClassNotFoundException e) {
-			Launcher.logger.error(e.getMessage(), e);
+			Launcher.logger.catching(e);
 			throw new IOException(e.getMessage());
 		}
 	}

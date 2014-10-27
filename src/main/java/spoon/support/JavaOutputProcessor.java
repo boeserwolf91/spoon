@@ -92,7 +92,7 @@ public class JavaOutputProcessor extends AbstractProcessor<CtSimpleType<?>>
 		try {
 			directory = directory.getCanonicalFile();
 		} catch (IOException e) {
-			Launcher.logger.error(e.getMessage(), e);
+			Launcher.logger.catching(e);
 			throw new RuntimeException(e);
 		}
 	}
@@ -162,7 +162,7 @@ public class JavaOutputProcessor extends AbstractProcessor<CtSimpleType<?>>
 				stream.println(printer.getPackageDeclaration());
 				stream.close();
 			} catch (FileNotFoundException e) {
-				Launcher.logger.error(e.getMessage(), e);
+				Launcher.logger.catching(e);
 			} finally {
 				if (stream != null)
 					stream.close();
@@ -186,9 +186,9 @@ public class JavaOutputProcessor extends AbstractProcessor<CtSimpleType<?>>
 			}
 			stream.close();
 		} catch (FileNotFoundException e) {
-			Launcher.logger.error(e.getMessage(), e);
+			Launcher.logger.catching(e);
 		} catch (IOException e) {
-			Launcher.logger.error(e.getMessage(), e);
+			Launcher.logger.catching(e);
 		} finally {
 			if (stream != null)
 				stream.close();

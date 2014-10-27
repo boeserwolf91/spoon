@@ -271,7 +271,7 @@ public class DefaultCoreFactory implements CoreFactory, Serializable {
 				// cloningContext.pop();
 			}
 		} catch (Exception e) {
-			Launcher.logger.error(e.getMessage(), e);
+			Launcher.logger.catching(e);
 		}
 		return result;
 

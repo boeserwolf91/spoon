@@ -93,7 +93,7 @@ public class ZipFolder implements SpoonFolder {
 				zipInput.close();
 
 			} catch (Exception e) {
-				Launcher.logger.error(e.getMessage(), e);
+				Launcher.logger.catching(e);
 			}
 		}
 		return files;
@@ -107,7 +107,7 @@ public class ZipFolder implements SpoonFolder {
 		try {
 			return SpoonResourceHelper.createFolder(file.getParentFile());
 		} catch (FileNotFoundException e) {
-			Launcher.logger.error(e.getMessage(), e);
+			Launcher.logger.catching(e);
 		}
 		return null;
 	}
@@ -129,7 +129,7 @@ public class ZipFolder implements SpoonFolder {
 		try {
 			return file.getCanonicalPath();
 		} catch (Exception e) {
-			Launcher.logger.error(e.getMessage(), e);
+			Launcher.logger.catching(e);
 			return file.getPath();
 		}
 	}

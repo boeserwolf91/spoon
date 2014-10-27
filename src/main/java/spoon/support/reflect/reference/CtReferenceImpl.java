@@ -106,7 +106,7 @@ public abstract class CtReferenceImpl implements CtReference, Serializable {
 				ctAnnotation.setElementValues(values);
 				return ctAnnotation;
 			} catch (Exception ex) {
-				Launcher.logger.error(ex.getMessage(), ex);
+				Launcher.logger.catching(ex);
 				return null;
 			}
 		}

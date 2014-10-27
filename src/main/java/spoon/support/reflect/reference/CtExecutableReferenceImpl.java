@@ -145,7 +145,7 @@ public class CtExecutableReferenceImpl<T> extends CtReferenceImpl implements
 						.getConstructor(parametersTypes
 								.toArray(new CtTypeReference<?>[0]));
 			} catch (ClassCastException e) {
-				Launcher.logger.error(e.getMessage(), e);
+				Launcher.logger.catching(e);
 			}
 		}
 		return (CtExecutable<T>) ret;

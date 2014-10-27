@@ -25,7 +25,8 @@ import java.util.Stack;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.eclipse.jdt.internal.compiler.ASTVisitor;
 import org.eclipse.jdt.internal.compiler.ast.AND_AND_Expression;
 import org.eclipse.jdt.internal.compiler.ast.ASTNode;
@@ -207,7 +208,8 @@ import spoon.support.reflect.reference.CtUnboundVariableReferenceImpl;
  */
 public class JDTTreeBuilder extends ASTVisitor {
 
-	private static final Logger logger = Logger.getLogger(JDTTreeBuilder.class);
+	private static final Logger logger = LogManager.getLogger(
+			JDTTreeBuilder.class);
 
 	public class ASTPair {
 		public CtElement element;
@@ -1345,8 +1347,8 @@ public class JDTTreeBuilder extends ASTVisitor {
 			}
 		}
 		// note: this happens when using the new try(vardelc) structure
-		logger.error("could not find declaration for local variable " + name
-				+ " at " + context.stack.peek().element.getPosition());
+		logger.error("could not find declaration for local variable {} at {}",
+				name, context.stack.peek().element.getPosition());
 
 		return null;
 	}

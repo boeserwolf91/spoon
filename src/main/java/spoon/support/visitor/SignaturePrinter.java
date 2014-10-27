@@ -17,10 +17,11 @@
 
 package spoon.support.visitor;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.lang.annotation.Annotation;
 import java.util.List;
-
-import org.apache.log4j.Logger;
 
 import spoon.reflect.code.CtAnnotationFieldAccess;
 import spoon.reflect.code.CtArrayAccess;
@@ -84,7 +85,7 @@ import spoon.reflect.reference.CtTypeReference;
 import spoon.reflect.visitor.CtVisitor;
 
 public class SignaturePrinter implements CtVisitor {
-	private static final Logger logger = Logger
+	private static final Logger logger = LogManager
 			.getLogger(SignaturePrinter.class);
 
 	StringBuffer signature;
@@ -128,7 +129,7 @@ public class SignaturePrinter implements CtVisitor {
 		if (annotation.getAnnotationType() != null) {
 			write(annotation.getAnnotationType().getQualifiedName());
 		} else {
-			logger.error("null annotation type at " + annotation.getPosition(),
+			logger.error("null annotation type at {}", annotation.getPosition(),
 					new Exception());
 		}
 	}

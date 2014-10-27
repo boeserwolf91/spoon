@@ -228,7 +228,7 @@ public class TemplateMatcher {
 		try {
 			clazz = declaration.getParent(CtClass.class);
 		} catch (ParentNotInitializedException e) {
-			Launcher.logger.error(e.getMessage(), e);
+			Launcher.logger.catching(e);
 		}
 		if (clazz == null) {
 			return new DefaultParameterMatcher();
@@ -414,7 +414,7 @@ public class TemplateMatcher {
 						return false;
 					}
 				} catch (Exception e) {
-					Launcher.logger.error(e.getMessage(), e);
+					Launcher.logger.catching(e);
 				}
 			}
 			return true;
@@ -459,10 +459,10 @@ public class TemplateMatcher {
 				throw new RuntimeException();
 			}
 		} catch (InstantiationException e) {
-			Launcher.logger.error(e.getMessage(), e);
+			Launcher.logger.catching(e);
 			return true;
 		} catch (IllegalAccessException e) {
-			Launcher.logger.error(e.getMessage(), e);
+			Launcher.logger.catching(e);
 			return true;
 		}
 	}

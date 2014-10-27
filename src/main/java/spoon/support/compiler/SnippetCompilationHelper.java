@@ -68,7 +68,7 @@ public class SnippetCompilationHelper {
 					return (Class<CtMethod<?>>) Class.forName(CtMethod.class
 							.getName());
 				} catch (Exception e) {
-					Launcher.logger.error(e.getMessage(), e);
+					Launcher.logger.catching(e);
 					return null;
 				}
 			}

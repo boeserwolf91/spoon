@@ -32,7 +32,7 @@ class CompilationUnitWrapper extends CompilationUnit {
 					return content;
 				}
 			} catch (Exception e) {
-				Launcher.logger.error(e.getMessage(), e);
+				Launcher.logger.catching(e);
 			}
 		}
 		return super.getContents();

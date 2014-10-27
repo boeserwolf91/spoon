@@ -156,7 +156,7 @@ public abstract class AbstractAnnotationProcessor<A extends Annotation, E extend
 				try {
 					process((A) annotation.getActualAnnotation(), element);
 				} catch (Exception e) {
-					Launcher.logger.error(e.getMessage(), e);
+					Launcher.logger.catching(e);
 				}
 				if (shoudBeConsumed(annotation)) {
 					element.removeAnnotation(annotation);

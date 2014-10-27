@@ -30,7 +30,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import spoon.compiler.Environment;
@@ -58,7 +59,7 @@ import spoon.support.processing.XmlProcessorProperties;
  */
 public class StandardEnvironment implements Serializable, Environment {
 
-	Logger logger = Logger.getLogger(StandardEnvironment.class);
+	Logger logger = LogManager.getLogger(StandardEnvironment.class);
 
 	/**
 	 * The processors' properties files extension (.xml)

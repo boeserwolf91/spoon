@@ -190,7 +190,7 @@ public class CtAnnotationImpl<A extends Annotation> extends CtElementImpl
 					return ((Field) ((CtFieldReference<?>) value)
 							.getActualField()).get(null);
 				} catch (Exception e) {
-					Launcher.logger.error(e.getMessage(), e);
+					Launcher.logger.catching(e);
 				}
 				return null;
 			}

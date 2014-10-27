@@ -25,7 +25,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
@@ -444,7 +446,7 @@ public class Launcher {
 								"Unable to add template file: "
 										+ e.getMessage());
 						if (environment.isDebug()) {
-							logger.error(e.getMessage(), e);
+							logger.catching(e);
 						}
 					}
 				}
@@ -497,7 +499,7 @@ public class Launcher {
 			env.report(null, Severity.ERROR,
 					"Unable to load spoonlet: " + e.getMessage());
 			if (env.isDebug()) {
-				logger.debug(e.getMessage(), e);
+				logger.catching(Level.DEBUG, e);
 			}
 			return;
 		}
@@ -528,9 +530,9 @@ public class Launcher {
 				xr.parse(new InputSource(stream));
 				stream.close();
 			} catch (SAXException e) {
-				logger.error(e.getMessage(), e);
+				logger.catching(e);
 			} catch (IOException e) {
-				logger.error(e.getMessage(), e);
+				logger.catching(e);
 			}
 		}
 	}
@@ -570,7 +572,7 @@ public class Launcher {
 	/**
 	 * A default logger to be used by Spoon.
 	 */
-	public static final Logger logger = Logger.getLogger(Launcher.class);
+	public static final Logger logger = LogManager.getLogger(Launcher.class);
 
 	/**
 	 * Creates a new Spoon Java compiler in order to process and compile Java
@@ -796,7 +798,7 @@ public class Launcher {
 			env.report(null, Severity.ERROR, "Error while loading resource : "
 					+ e.getMessage());
 			if (env.isDebug()) {
-				logger.debug(e.getMessage(), e);
+				logger.catching(Level.DEBUG, e);
 			}
 		}
 

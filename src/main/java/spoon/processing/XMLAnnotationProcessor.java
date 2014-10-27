@@ -98,19 +98,19 @@ public class XMLAnnotationProcessor extends AbstractManualProcessor {
 			Exception x = spe;
 			if (spe.getException() != null)
 				x = spe.getException();
-			Launcher.logger.error(x.getMessage(), x);
+			Launcher.logger.catching(x);
 		} catch (SAXException sxe) {
 			// Error generated during parsing
 			Exception x = sxe;
 			if (sxe.getException() != null)
 				x = sxe.getException();
-			Launcher.logger.error(x.getMessage(), x);
+			Launcher.logger.catching(x);
 		} catch (ParserConfigurationException pce) {
 			// Parser with specified options can't be built
-			Launcher.logger.error(pce.getMessage(), pce);
+			Launcher.logger.catching(pce);
 		} catch (IOException ioe) {
 			// I/O error
-			Launcher.logger.error(ioe.getMessage(), ioe);
+			Launcher.logger.catching(ioe);
 		}
 	}
 
@@ -179,7 +179,7 @@ public class XMLAnnotationProcessor extends AbstractManualProcessor {
 				try {
 					annotateElement(t, clazz);
 				} catch (Exception e) {
-					Launcher.logger.error(e.getMessage(), e);
+					Launcher.logger.catching(e);
 				}
 
 				NodeList nodeList3 = clazz.getElementsByTagName("field");
@@ -195,7 +195,7 @@ public class XMLAnnotationProcessor extends AbstractManualProcessor {
 						try {
 							annotateElement(field, fieldElt);
 						} catch (Exception e) {
-							Launcher.logger.error(e.getMessage(), e);
+							Launcher.logger.catching(e);
 						}
 					}
 				}
@@ -223,7 +223,7 @@ public class XMLAnnotationProcessor extends AbstractManualProcessor {
 						try {
 							annotateElement(executable, executableElt);
 						} catch (Exception e) {
-							Launcher.logger.error(e.getMessage(), e);
+							Launcher.logger.catching(e);
 						}
 
 						// NodeList paramList = method

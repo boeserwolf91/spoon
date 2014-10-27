@@ -384,7 +384,7 @@ public class VisitorSymbolicEvaluator implements CtVisitor, SymbolicEvaluator {
 			try {
 				invoke(null, executable.getReference(), target, cargs);
 			} catch (SymbolicWrappedException e) {
-				Launcher.logger.error(e.getMessage(), e);
+				Launcher.logger.catching(e);
 				// swallow it
 			}
 			notifyEndPath();

@@ -97,8 +97,8 @@ public class JDTSnippetCompiler extends JDTBasedSpoonCompiler {
 		try {
 			batchCompiler.configure(args.toArray(new String[0]));
 		} catch (Exception e) {
-			Launcher.logger.error("build args: " + args);
-			Launcher.logger.error("sources: " + sources.getAllJavaFiles());
+			Launcher.logger.error("build args: {}", args);
+			Launcher.logger.error("sources: {}", sources.getAllJavaFiles());
 			Launcher.logger.error(e.getMessage(), e);
 			throw e;
 		}

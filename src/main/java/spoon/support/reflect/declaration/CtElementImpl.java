@@ -27,8 +27,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.apache.log4j.Logger;
-
 import spoon.Launcher;
 import spoon.processing.FactoryAccessor;
 import spoon.reflect.cu.SourcePosition;
@@ -51,9 +49,6 @@ import spoon.support.visitor.SignaturePrinter;
 import spoon.support.visitor.TypeReferenceScanner;
 
 public abstract class CtElementImpl implements CtElement, Serializable {
-
-	protected static final Logger logger = Logger
-			.getLogger(CtElementImpl.class);
 
 	private static final CtElement ROOT_ELEMENT = new CtElementImpl() {
 		private static final long serialVersionUID = 1L;
@@ -254,7 +249,7 @@ public abstract class CtElementImpl implements CtElement, Serializable {
 		} catch (CtUncomparableException e1) {
 			// do nothing
 		} catch (Exception e1) {
-			Launcher.logger.error(e1.getMessage(), e1);
+			Launcher.logger.catching(e1);
 		}
 	}
 

@@ -1327,7 +1327,7 @@ public class DefaultJavaPrettyPrinter implements CtVisitor, PrettyPrinter {
 					write("super");
 				}
 			} catch (Exception e) {
-				Launcher.logger.error(e.getMessage(), e);
+				Launcher.logger.catching(e);
 			}
 		} else {
 			// It's a method invocation
@@ -1343,7 +1343,7 @@ public class DefaultJavaPrettyPrinter implements CtVisitor, PrettyPrinter {
 					context.ignoreGenerics = false;
 					write(".");
 				} catch (Exception e) {
-					Launcher.logger.error(e.getMessage(), e);
+					Launcher.logger.catching(e);
 				}
 			} else if (invocation.getTarget() != null) {
 				context.enterTarget();

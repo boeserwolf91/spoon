@@ -111,7 +111,7 @@ public abstract class AbstractProcessor<E extends CtElement> implements
 							Severity.ERROR,
 							"wrong properties file format for processor '"
 									+ p.getClass().getName() + "'");
-			Launcher.logger.error(e.getMessage(), e);
+			Launcher.logger.catching(e);
 		} catch (Exception e) {
 			p.getFactory()
 					.getEnvironment()
@@ -120,7 +120,7 @@ public abstract class AbstractProcessor<E extends CtElement> implements
 							"unable to get properties for processor '"
 									+ p.getClass().getName() + "': "
 									+ e.getMessage());
-			Launcher.logger.error(e.getMessage(), e);
+			Launcher.logger.catching(e);
 		}
 		return props;
 	}
@@ -155,7 +155,7 @@ public abstract class AbstractProcessor<E extends CtElement> implements
 						try {
 							f.set(p, obj);
 						} catch (Exception e) {
-							Launcher.logger.error(e.getMessage(), e);
+							Launcher.logger.catching(e);
 						}
 					} else {
 						p.getFactory()

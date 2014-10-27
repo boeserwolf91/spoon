@@ -67,7 +67,7 @@ public class FileSystemFolder implements SpoonFolder {
 		try {
 			return SpoonResourceHelper.createFolder(file.getParentFile());
 		} catch (FileNotFoundException e) {
-			Launcher.logger.error(e.getMessage(), e);
+			Launcher.logger.catching(e);
 		}
 		return null;
 	}
@@ -80,7 +80,7 @@ public class FileSystemFolder implements SpoonFolder {
 				try {
 					subFolders.add(SpoonResourceHelper.createFolder(f));
 				} catch (FileNotFoundException e) {
-					Launcher.logger.error(e.getMessage(), e);
+					Launcher.logger.catching(e);
 				}
 		}
 		return subFolders;
@@ -109,7 +109,7 @@ public class FileSystemFolder implements SpoonFolder {
 		try {
 			return file.getCanonicalPath();
 		} catch (Exception e) {
-			Launcher.logger.error(e.getMessage(), e);
+			Launcher.logger.catching(e);
 			return file.getPath();
 		}
 	}

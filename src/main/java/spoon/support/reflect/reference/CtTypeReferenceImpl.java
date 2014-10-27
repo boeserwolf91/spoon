@@ -17,6 +17,8 @@
 
 package spoon.support.reflect.reference;
 
+import org.apache.logging.log4j.LogManager;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Constructor;
@@ -129,7 +131,7 @@ public class CtTypeReferenceImpl<T> extends CtReferenceImpl implements
 		}
 		return findClass();
 	}
-	
+
 	/**
 	 * Finds the class requested in {@link #getActualClass()}, using the
 	 * {@code ClassLoader} of the {@code Environment}
@@ -144,7 +146,7 @@ public class CtTypeReferenceImpl<T> extends CtReferenceImpl implements
 					+ Thread.currentThread().getContextClassLoader(), cnfe);
 		}
 	}
-	
+
 	public List<CtTypeReference<?>> getActualTypeArguments() {
 		return actualTypeArguments;
 	}
@@ -174,7 +176,7 @@ public class CtTypeReferenceImpl<T> extends CtReferenceImpl implements
 	protected AnnotatedElement getActualAnnotatedElement() {
 		return getActualClass();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public CtSimpleType<T> getDeclaration() {
 		if (!isPrimitive() && (getQualifiedName().length() > 0)) {
@@ -250,9 +252,9 @@ public class CtTypeReferenceImpl<T> extends CtReferenceImpl implements
 				Class<?> actualSuperType = type.getActualClass();
 				return actualSuperType.isAssignableFrom(actualSubType);
 			} catch (Exception e) {
-				Launcher.logger.error("cannot determine runtime types for '"
-						+ this + "' (" + getActualClass() + ") and '" + type
-						+ "' (" + type.getActualClass() + ")", e);
+				Launcher.logger.error(
+						"cannot determine runtime types for '{}' ({}) and '{}' ({})",
+						this, getActualClass(), type, type.getActualClass(), e);
 				return false;
 			}
 		}
@@ -299,8 +301,9 @@ public class CtTypeReferenceImpl<T> extends CtReferenceImpl implements
 					return superType.isSubtypeOf(type);
 				}
 			} catch (Exception e) {
-				Launcher.logger.error("cannot determine runtime types for '"
-						+ this + "' and '" + type + "'", e);
+				Launcher.logger
+						.error("cannot determine runtime types for '{}' and '{}'",
+								this, type, e);
 				return false;
 			}
 		}

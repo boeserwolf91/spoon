@@ -279,7 +279,7 @@ public class JDTBasedSpoonCompiler implements SpoonCompiler {
 			FileUtils.writeStringToFile(f, "class Tmp {}");
 			f.deleteOnExit();
 		} catch (Exception e) {
-			Launcher.logger.error(e.getMessage(), e);
+			Launcher.logger.catching(e);
 		}
 		return f;
 	}
@@ -801,7 +801,7 @@ public class JDTBasedSpoonCompiler implements SpoonCompiler {
 				}
 
 			} catch (Exception e) {
-				Launcher.logger.error(e.getMessage(), e);
+				Launcher.logger.catching(e);
 			}
 		}
 	}
@@ -977,8 +977,8 @@ public class JDTBasedSpoonCompiler implements SpoonCompiler {
 			CompilerClassLoader ccl = getCompilerClassLoader(cl);
 			if (ccl == null) {
 				try {
-					Launcher.logger.debug("setting classloader for "
-							+ getDestinationDirectory().toURI().toURL());
+					Launcher.logger.debug("setting class loader for {}",
+							getDestinationDirectory().toURI().toURL());
 					Thread.currentThread().setContextClassLoader(
 							new CompilerClassLoader(
 									new URL[] { getDestinationDirectory()
@@ -986,7 +986,7 @@ public class JDTBasedSpoonCompiler implements SpoonCompiler {
 											.getEnvironment()
 											.getInputClassLoader()));
 				} catch (Exception e) {
-					Launcher.logger.error(e.getMessage(), e);
+					Launcher.logger.catching(e);
 				}
 			}
 		} else {
